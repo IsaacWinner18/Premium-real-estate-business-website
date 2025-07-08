@@ -12,7 +12,8 @@ const properties = [
     price: "₦40,000,000",
     type: "House",
     size: "5,200 sqft",
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["Waterfront", "Smart Home", "Private Beach"],
   },
   {
@@ -22,7 +23,8 @@ const properties = [
     price: "₦5,000,000",
     type: "Land",
     size: "2,000 sqm",
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["C of O", "Gated Community", "High ROI"],
   },
   {
@@ -32,7 +34,8 @@ const properties = [
     price: "₦32,000,000",
     type: "House",
     size: "3,800 sqft",
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["City View", "Pool", "Gym"],
   },
   {
@@ -42,7 +45,8 @@ const properties = [
     price: "₦8,200,000,",
     type: "Commercial",
     size: "15,000 sqft",
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["Prime Location", "High Yield", "Fully Leased"],
   },
 ];

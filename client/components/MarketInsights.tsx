@@ -6,8 +6,10 @@ const blogPosts = [
     id: 1,
     slug: "smart-places-buy-land-lagos-2025",
     title: "5 Smart Places to Buy Land in Lagos 2025",
-    excerpt: "Discover the fastest-growing areas in Lagos with the highest ROI potential for land banking investments.",
-    image: "/placeholder.svg?height=200&width=300",
+    excerpt:
+      "Discover the fastest-growing areas in Lagos with the highest ROI potential for land banking investments.",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     date: "Jan 15, 2025",
     readTime: "5 min read",
     category: "Investment Guide",
@@ -16,8 +18,10 @@ const blogPosts = [
     id: 2,
     slug: "c-of-o-vs-gazette-whats-the-difference",
     title: "C of O vs Gazette: What's the Difference?",
-    excerpt: "Understanding the legal documents that protect your property investment and ensure clear ownership.",
-    image: "/placeholder.svg?height=200&width=300",
+    excerpt:
+      "Understanding the legal documents that protect your property investment and ensure clear ownership.",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     date: "Jan 10, 2025",
     readTime: "7 min read",
     category: "Legal Guide",
@@ -26,13 +30,15 @@ const blogPosts = [
     id: 3,
     slug: "real-estate-vs-crypto-why-land-still-wins",
     title: "Real Estate vs Crypto: Why Land Still Wins",
-    excerpt: "A comprehensive analysis of why real estate remains the most stable wealth-building investment.",
-    image: "/placeholder.svg?height=200&width=300",
+    excerpt:
+      "A comprehensive analysis of why real estate remains the most stable wealth-building investment.",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     date: "Jan 5, 2025",
     readTime: "10 min read",
     category: "Market Analysis",
   },
-]
+];
 
 export default function MarketInsights() {
   return (

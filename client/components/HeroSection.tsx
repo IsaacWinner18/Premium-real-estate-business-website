@@ -15,19 +15,23 @@ export default function HeroSection() {
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full h-full z-0 bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: "url(/Dubai-real-estate.jpg)", opacity: 0.9 }}
+        style={{
+          backgroundImage:
+            "url(https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg)",
+          opacity: 0.9,
+        }}
         aria-hidden="true"
       />
       {/* Dark Overlay */}
       <div className="absolute inset-0 w-full h-full z-10 bg-black opacity-60 pointer-events-none" />
       {/* Content */}
       <div
-        className={`relative z-20 text-center text-white px-4 max-w-6xl mx-auto transition-all duration-1000 ${
+        className={`relative z-20 text-center text-white md:px-4 px-2 max-w-6xl mx-auto transition-all duration-1000 ${
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 ">
-          Own a Piece of <span className="bg-yellow-400">Tomorrow</span>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 ">
+          Own A Piece Of <span className="bg-yellow-400">Tomorrow</span>
         </h1>
         <h2 className="text-xl md:text-2xl lg:text-3xl font-serif mb-8">
           Invest in Premium Real Estate Today

@@ -174,3 +174,193 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(22, 101, 52, 0.8);
 }
+
+/* Simple golden spinner loader */
+.spinner {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 4px solid #ffd700;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom bar chart loader with jumping ball */
+.bar-chart-loader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 80px;
+  position: relative;
+  width: 120px;
+}
+.bar-chart-bar {
+  width: 16px;
+  margin: 0 6px;
+  background: #ffd700;
+  border-radius: 0;
+  transition: height 0.2s;
+}
+.bar1 {
+  height: 24px;
+  animation: bar1-grow 1.2s infinite;
+}
+.bar2 {
+  height: 40px;
+  animation: bar2-grow 1.2s infinite;
+}
+.bar3 {
+  height: 56px;
+  animation: bar3-grow 1.2s infinite;
+}
+.bar4 {
+  height: 72px;
+  animation: bar4-grow 1.2s infinite;
+}
+
+@keyframes bar1-grow {
+  0%,
+  100% {
+    height: 24px;
+  }
+  10% {
+    height: 24px;
+  }
+  20% {
+    height: 24px;
+  }
+  30% {
+    height: 24px;
+  }
+  40% {
+    height: 24px;
+  }
+  50% {
+    height: 24px;
+  }
+  60% {
+    height: 24px;
+  }
+  70% {
+    height: 24px;
+  }
+  80% {
+    height: 24px;
+  }
+  90% {
+    height: 24px;
+  }
+}
+@keyframes bar2-grow {
+  0%,
+  19% {
+    height: 40px;
+  }
+  20%,
+  39% {
+    height: 40px;
+  }
+  40%,
+  100% {
+    height: 40px;
+  }
+}
+@keyframes bar3-grow {
+  0%,
+  39% {
+    height: 56px;
+  }
+  40%,
+  59% {
+    height: 56px;
+  }
+  60%,
+  100% {
+    height: 56px;
+  }
+}
+@keyframes bar4-grow {
+  0%,
+  59% {
+    height: 72px;
+  }
+  60%,
+  79% {
+    height: 72px;
+  }
+  80% {
+    height: 40px;
+  }
+  90%,
+  100% {
+    height: 72px;
+  }
+}
+
+.bar-chart-ball {
+  position: absolute;
+  left: 4px;
+  bottom: 24px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: ball-jump-arc 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+@keyframes ball-jump-arc {
+  0% {
+    left: 4px;
+    bottom: 24px;
+  }
+  10% {
+    left: 19px;
+    bottom: 60px;
+  }
+  20% {
+    left: 34px;
+    bottom: 40px;
+  }
+  30% {
+    left: 49px;
+    bottom: 76px;
+  }
+  40% {
+    left: 64px;
+    bottom: 56px;
+  }
+  50% {
+    left: 79px;
+    bottom: 92px;
+  }
+  60% {
+    left: 94px;
+    bottom: 72px;
+  }
+  70% {
+    left: 79px;
+    bottom: 92px;
+  }
+  80% {
+    left: 64px;
+    bottom: 56px;
+  }
+  90% {
+    left: 34px;
+    bottom: 40px;
+  }
+  100% {
+    left: 4px;
+    bottom: 24px;
+  }
+}

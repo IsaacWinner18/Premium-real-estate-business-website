@@ -19,7 +19,8 @@ const testimonials = [
     title: "Investment Banker",
     content:
       "Best real estate investment I've made. They guided me through the entire process and the property has already doubled in value. Highly recommended!",
-    image: "/placeholder.svg?height=80&width=80",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     rating: 5,
   },
   {
@@ -28,10 +29,11 @@ const testimonials = [
     title: "Business Owner",
     content:
       "Professional service from start to finish. They found me the perfect commercial property that generates excellent rental income. True experts!",
-    image: "/placeholder.svg?height=80&width=80",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     rating: 5,
   },
-]
+];
 
 const stats = [
   { number: "500+", label: "Properties Sold" },
@@ -76,7 +78,7 @@ export default function WhyWorkWithUs() {
           <div className="relative">
             <div className="aspect-video glass-strong rounded-2xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg"
                 alt="Company Video"
                 width={600}
                 height={400}
@@ -90,15 +92,21 @@ export default function WhyWorkWithUs() {
             </div>
             <div className="mt-6 grid grid-cols-3 md:gap-4 gap-1">
               <div className="text-center p-2 glass-strong rounded-lg">
-                <div className="md:text-2xl text-xl font-bold text-white">NIESV</div>
+                <div className="md:text-2xl text-xl font-bold text-white">
+                  NIESV
+                </div>
                 <div className="text-sm text-white/70">Certified</div>
               </div>
               <div className="text-center p-2 glass-strong rounded-lg">
-                <div className="md:text-2xl text-xl font-bold text-white">ESVARBON</div>
+                <div className="md:text-2xl text-xl font-bold text-white">
+                  ESVARBON
+                </div>
                 <div className="text-sm text-white/70">Member</div>
               </div>
               <div className="text-center p-2 glass-strong rounded-lg">
-                <div className="md:text-2xl text-xl font-bold text-white">ISO</div>
+                <div className="md:text-2xl text-xl font-bold text-white">
+                  ISO
+                </div>
                 <div className="text-sm text-white/70">Certified</div>
               </div>
             </div>
