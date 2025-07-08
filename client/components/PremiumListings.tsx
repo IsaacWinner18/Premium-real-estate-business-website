@@ -9,7 +9,7 @@ const properties = [
     id: 1,
     title: "Oceanfront Estate",
     location: "Victoria Island, Lagos",
-    price: "₦450,000,000",
+    price: "₦40,000,000",
     type: "House",
     size: "5,200 sqft",
     image: "/placeholder.svg?height=400&width=600",
@@ -19,7 +19,7 @@ const properties = [
     id: 2,
     title: "Premium Land Banking",
     location: "Lekki Phase 2, Lagos",
-    price: "₦25,000,000",
+    price: "₦5,000,000",
     type: "Land",
     size: "2,000 sqm",
     image: "/placeholder.svg?height=400&width=600",
@@ -29,7 +29,7 @@ const properties = [
     id: 3,
     title: "Luxury Penthouse",
     location: "Ikoyi, Lagos",
-    price: "₦320,000,000",
+    price: "₦32,000,000",
     type: "House",
     size: "3,800 sqft",
     image: "/placeholder.svg?height=400&width=600",
@@ -39,7 +39,7 @@ const properties = [
     id: 4,
     title: "Commercial Complex",
     location: "Abuja CBD",
-    price: "₦1,200,000,000",
+    price: "₦8,200,000,",
     type: "Commercial",
     size: "15,000 sqft",
     image: "/placeholder.svg?height=400&width=600",
@@ -175,7 +175,7 @@ export default function PremiumListings() {
                   </span>
                   <Link
                     href={`/properties/${property.id}`}
-                    className="bg-yellow-700 text-white px-6 md:py-2 py-4 font-semibold hover:glass-strong transition-all duration-300 rounded-lg"
+                    className="bg-yellow-700 text-white md:px-6 px-4 md:py-2 py-3 font-semibold hover:glass-strong transition-all duration-300 rounded-lg"
                   >
                     View Details
                   </Link>

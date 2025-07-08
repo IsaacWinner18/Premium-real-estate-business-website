@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -11,20 +11,20 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/#consultation" },
-]
+];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -38,9 +38,13 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg lg:text-xl">P</span>
+                <span className="text-white font-bold text-lg lg:text-xl">
+                  P
+                </span>
               </div>
-              <span className="text-xl lg:text-2xl font-serif font-bold text-white">PremiumEstate</span>
+              <span className="text-xl lg:text-2xl font-serif font-bold text-white">
+                PremiumEstate
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -50,7 +54,9 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   className={`font-medium transition-colors duration-200 ${
-                    pathname === item.href ? "text-amber-400" : "text-white/90 hover:text-white"
+                    pathname === item.href
+                      ? "text-amber-400"
+                      : "text-white/90 hover:text-white"
                   }`}
                 >
                   {item.name}
@@ -73,11 +79,26 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 rounded-md text-white z-50 relative"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
               </svg>
             </button>
@@ -94,31 +115,35 @@ export default function Header() {
       )}
 
       {/* Mobile Navigation Sidebar */}
-      <div
-        className={`fixed top-0 left-0 h-full w-80 glass-strong z-50 lg:hidden slide-menu ${isMobileMenuOpen ? "open" : ""}`}
-      >
-        <div className="pt-20 px-6 py-6 space-y-6">
-          {navigation.map((item) => (
+      {isMobileMenuOpen && (
+        <div
+          className={`fixed top-0 left-0 h-full w-80 glass-strong z-50 lg:hidden slide-menu open`}
+        >
+          <div className="pt-20 px-6 py-6 space-y-6">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-lg font-medium transition-colors duration-200 ${
+                  pathname === item.href
+                    ? "text-yellow-400"
+                    : "text-white hover:text-yellow-300"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
             <Link
-              key={item.name}
-              href={item.href}
+              href="/#consultation"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`block text-lg font-medium transition-colors duration-200 ${
-                pathname === item.href ? "text-yellow-400" : "text-white hover:text-yellow-300"
-              }`}
+              className="block bg-gradient-to-r from-yellow-600 to-yellow-700 text-white px-6 py-3 rounded-full font-semibold text-center mt-8"
             >
-              {item.name}
+              Get Started
             </Link>
-          ))}
-          <Link
-            href="/#consultation"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block bg-gradient-to-r from-yellow-600 to-yellow-700 text-white px-6 py-3 rounded-full font-semibold text-center mt-8"
-          >
-            Get Started
-          </Link>
+          </div>
         </div>
-      </div>
+      )}
     </>
-  )
+  );
 }
