@@ -107,7 +107,7 @@ export default function PremiumListings() {
 
           {/* Mobile Filters - Scrollable */}
           <div className="md:hidden glass-strong rounded-2xl p-4 shadow-xl">
-            <div className="flex gap-3 overflow-x-auto scrollable-filters pb-2">
+            <div className="flex gap-3 overflow-x-auto scrollable-filters pb-2 ">
               {filters.map((filter) => (
                 <button
                   key={filter}
@@ -115,7 +115,7 @@ export default function PremiumListings() {
                   className={`px-4 py-2 font-semibold transition-all duration-300 rounded-lg whitespace-nowrap flex-shrink-0 ${
                     activeFilter === filter
                       ? "bg-yellow-600 text-white shadow-lg"
-                      : "glass text-white hover:glass-strong"
+                      : "glass text-neutral-900 hover:glass-strong"
                   }`}
                 >
                   {filter}
