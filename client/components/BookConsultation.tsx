@@ -36,9 +36,12 @@ export default function BookConsultation() {
       <div className="max-w-4xl mx-auto px-2">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">
-            Book Your Private <span className="text-yellow-400">Consultation</span>
+            Book Your Private{" "}
+            <span className="text-yellow-400">Consultation</span>
           </h2>
-          <p className="text-xl text-white/80">Get personalized property recommendations from our experts</p>
+          <p className="text-xl text-white/80">
+            Get personalized property recommendations from our experts
+          </p>
         </div>
 
         <div className="glass-strong text-white rounded-2xl md:p-8 py-4 px-4 shadow-2xl">
@@ -48,13 +51,19 @@ export default function BookConsultation() {
               <div key={step} className="flex items-center">
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
-                    currentStep >= step ? "bg-yellow-600 text-white" : "glass text-white/60"
+                    currentStep >= step
+                      ? "bg-yellow-600 text-white"
+                      : "glass text-white/60"
                   }`}
                 >
                   {step}
                 </div>
                 {step < 3 && (
-                  <div className={`w-20 h-1 mx-4 ${currentStep > step ? "bg-yellow-600" : "bg-white/20"}`}></div>
+                  <div
+                    className={`w-20 h-1 md:mx-4 mx-1 ${
+                      currentStep > step ? "bg-yellow-600" : "bg-white/20"
+                    }`}
+                  ></div>
                 )}
               </div>
             ))}
@@ -64,34 +73,46 @@ export default function BookConsultation() {
             {/* Step 1: Property Preferences */}
             {currentStep === 1 && (
               <div className="space-y-6">
-                <h3 className="text-2xl font-semibold mb-6">What type of property interests you?</h3>
+                <h3 className="text-2xl font-semibold mb-6">
+                  What type of property interests you?
+                </h3>
 
                 <div>
-                  <label className="block text-sm font-medium mb-3">Property Type</label>
+                  <label className="block text-sm font-medium mb-3">
+                    Property Type
+                  </label>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {["Land", "Houses", "Commercial", "Mixed Use"].map((type) => (
-                      <button
-                        key={type}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, propertyType: type })}
-                        className={`p-4 border-2 rounded-lg font-medium transition-all duration-300 ${
-                          formData.propertyType === type
-                            ? "border-yellow-400 bg-white-600/20 text-yellow-200"
-                            : "border-white/20 glass hover:border-yellow-400/50"
-                        }`}
-                      >
-                        {type}
-                      </button>
-                    ))}
+                    {["Land", "Houses", "Commercial", "Mixed Use"].map(
+                      (type) => (
+                        <button
+                          key={type}
+                          type="button"
+                          onClick={() =>
+                            setFormData({ ...formData, propertyType: type })
+                          }
+                          className={`p-4 border-2 rounded-lg font-medium transition-all duration-300 ${
+                            formData.propertyType === type
+                              ? "border-yellow-400 bg-white-600/20 text-yellow-200"
+                              : "border-white/20 glass hover:border-yellow-400/50"
+                          }`}
+                        >
+                          {type}
+                        </button>
+                      )
+                    )}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-3">Budget Range</label>
+                  <label className="block text-sm font-medium mb-3">
+                    Budget Range
+                  </label>
                   <select
                     value={formData.budget}
-                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className="w-full p-3 glass border border-white/20 rounded-lg text-white"
+                    onChange={(e) =>
+                      setFormData({ ...formData, budget: e.target.value })
+                    }
+                    className="w-full p-3 bg-yellow-900 border border-white/20 rounded-lg text-white"
                     required
                   >
                     <option value="">Select budget range</option>
@@ -110,19 +131,36 @@ export default function BookConsultation() {
                 <h3 className="text-2xl font-semibold mb-6">Where and when?</h3>
 
                 <div>
-                  <label className="block text-sm font-medium mb-3">Preferred Locations</label>
+                  <label className="block text-sm font-medium mb-3">
+                    Preferred Locations
+                  </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {["Lagos Island", "Lekki", "Ikoyi", "Victoria Island", "Abuja", "Port Harcourt"].map((location) => (
+                    {[
+                      "Lagos Island",
+                      "Lekki",
+                      "Ikoyi",
+                      "Victoria Island",
+                      "Abuja",
+                      "Port Harcourt",
+                    ].map((location) => (
                       <label key={location} className="flex items-center">
                         <input
                           type="checkbox"
                           className="mr-2"
                           onChange={(e) => {
-                            const locations = formData.locations as string[]
+                            const locations = formData.locations as string[];
                             if (e.target.checked) {
-                              setFormData({ ...formData, locations: [...locations, location] })
+                              setFormData({
+                                ...formData,
+                                locations: [...locations, location],
+                              });
                             } else {
-                              setFormData({ ...formData, locations: locations.filter((l) => l !== location) })
+                              setFormData({
+                                ...formData,
+                                locations: locations.filter(
+                                  (l) => l !== location
+                                ),
+                              });
                             }
                           }}
                         />
@@ -133,15 +171,21 @@ export default function BookConsultation() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-3">Timeline for Purchase</label>
+                  <label className="block text-sm font-medium mb-3">
+                    Timeline for Purchase
+                  </label>
                   <select
                     value={formData.timeline}
-                    onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full p-3 glass border border-white/20 rounded-lg text-white"
+                    onChange={(e) =>
+                      setFormData({ ...formData, timeline: e.target.value })
+                    }
+                    className="w-full p-3 bg-yellow-900 border border-white/20 rounded-lg text-white"
                     required
                   >
                     <option value="">Select timeline</option>
-                    <option value="immediate">Immediate (within 1 month)</option>
+                    <option value="immediate">
+                      Immediate (within 1 month)
+                    </option>
                     <option value="3months">Within 3 months</option>
                     <option value="6months">Within 6 months</option>
                     <option value="1year">Within 1 year</option>
@@ -153,25 +197,35 @@ export default function BookConsultation() {
             {/* Step 3: Contact Information */}
             {currentStep === 3 && (
               <div className="space-y-6">
-                <h3 className="text-2xl font-semibold mb-6">Let's get in touch</h3>
+                <h3 className="text-2xl font-semibold mb-6">
+                  Let's get in touch
+                </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Full Name</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       className="w-full p-3 glass border border-white/20 rounded-lg text-white placeholder-white/50"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Phone Number</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                       className="w-full p-3 glass border border-white/20 rounded-lg text-white placeholder-white/50"
                       required
                     />
@@ -179,11 +233,15 @@ export default function BookConsultation() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email Address</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full p-3 glass border border-white/20 rounded-lg text-white placeholder-white/50"
                     required
                   />
@@ -214,7 +272,7 @@ export default function BookConsultation() {
               ) : (
                 <button
                   type="submit"
-                  className="ml-auto px-8 py-3 bg-yellow-400 text-white font-semibold hover:bg-yellow-300 transition-colors duration-300 rounded-lg"
+                  className="ml-4 px-4 md:px-8 py-3 bg-yellow-400 text-white font-semibold hover:bg-yellow-300 transition-colors duration-300 rounded-lg"
                 >
                   Book Consultation
                 </button>
@@ -224,5 +282,5 @@ export default function BookConsultation() {
         </div>
       </div>
     </section>
-  )
+  );
 }

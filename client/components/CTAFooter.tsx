@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export default function CTAFooter() {
   return (
@@ -10,7 +10,8 @@ export default function CTAFooter() {
             Ready to Build Your <span className="text-yellow-400">Wealth</span>?
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Join hundreds of successful investors who trust us with their real estate portfolio
+            Join hundreds of successful investors who trust us with their real
+            estate portfolio
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
@@ -27,18 +28,22 @@ export default function CTAFooter() {
 
           {/* Newsletter Signup */}
           <div className="max-w-md mx-auto">
-            <h3 className="text-xl font-semibold mb-4">Get Real Estate Alerts</h3>
+            <h3 className="text-xl font-semibold mb-4">
+              Get Real Estate Alerts
+            </h3>
             <div className="flex gap-2">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 p-3 glass border border-white/20 text-white rounded-lg placeholder-white/50"
               />
-              <button className="bg-yellow-400 text-black px-6 py-3 font-semibold hover:bg-yellow-300 transition-colors duration-300 rounded-lg">
+              <button className="bg-yellow-400 text-black md:px-6 px-4 py-3 font-semibold hover:bg-yellow-300 transition-colors duration-300 rounded-lg">
                 Subscribe
               </button>
             </div>
-            <p className="text-sm text-white/60 mt-2">Get new listings, investment tips, and market insights weekly</p>
+            <p className="text-sm text-white/60 mt-2">
+              Get new listings, investment tips, and market insights weekly
+            </p>
           </div>
         </div>
       </div>
@@ -48,18 +53,30 @@ export default function CTAFooter() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-serif font-bold text-yellow-400 mb-4">PremiumEstate</h3>
+              <h3 className="text-2xl font-serif font-bold text-yellow-400 mb-4">
+                PremiumEstate
+              </h3>
               <p className="text-white/70 mb-4">
-                Nigeria's leading luxury real estate investment firm, connecting investors with premium properties.
+                Nigeria's leading luxury real estate investment firm, connecting
+                investors with premium properties.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-white/70 hover:text-white transition-colors duration-300">
+                <a
+                  href="#"
+                  className="text-white/70 hover:text-white transition-colors duration-300"
+                >
                   Facebook
                 </a>
-                <a href="#" className="text-white/70 hover:text-white transition-colors duration-300">
+                <a
+                  href="#"
+                  className="text-white/70 hover:text-white transition-colors duration-300"
+                >
                   Instagram
                 </a>
-                <a href="#" className="text-white/70 hover:text-white transition-colors duration-300">
+                <a
+                  href="#"
+                  className="text-white/70 hover:text-white transition-colors duration-300"
+                >
                   LinkedIn
                 </a>
               </div>
@@ -69,22 +86,34 @@ export default function CTAFooter() {
               <h4 className="font-semibold mb-4 text-white">Services</h4>
               <ul className="space-y-2 text-white/70">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors duration-300">
+                  <Link
+                    href="#"
+                    className="hover:text-white transition-colors duration-300"
+                  >
                     Property Sales
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors duration-300">
+                  <Link
+                    href="#"
+                    className="hover:text-white transition-colors duration-300"
+                  >
                     Land Banking
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors duration-300">
+                  <Link
+                    href="#"
+                    className="hover:text-white transition-colors duration-300"
+                  >
                     Investment Advisory
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors duration-300">
+                  <Link
+                    href="#"
+                    className="hover:text-white transition-colors duration-300"
+                  >
                     Property Management
                   </Link>
                 </li>
@@ -95,22 +124,34 @@ export default function CTAFooter() {
               <h4 className="font-semibold mb-4 text-white">Locations</h4>
               <ul className="space-y-2 text-white/70">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors duration-300">
+                  <Link
+                    href="#"
+                    className="hover:text-white transition-colors duration-300"
+                  >
                     Lagos Properties
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors duration-300">
+                  <Link
+                    href="#"
+                    className="hover:text-white transition-colors duration-300"
+                  >
                     Abuja Properties
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors duration-300">
+                  <Link
+                    href="#"
+                    className="hover:text-white transition-colors duration-300"
+                  >
                     Port Harcourt
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors duration-300">
+                  <Link
+                    href="#"
+                    className="hover:text-white transition-colors duration-300"
+                  >
                     International
                   </Link>
                 </li>
@@ -133,20 +174,44 @@ export default function CTAFooter() {
       {/* Copyright */}
       <div className="border-t border-white/20 py-6">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/60 text-sm">© 2025 PremiumEstate. All rights reserved.</p>
+          <p className="text-white/60 text-sm">
+            © 2025 PremiumEstate. All rights reserved.
+          </p>
           <div className="flex space-x-6 text-sm text-white/60 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition-colors duration-300">
+            <Link
+              href="#"
+              className="hover:text-white transition-colors duration-300"
+            >
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-white transition-colors duration-300">
+            <Link
+              href="#"
+              className="hover:text-white transition-colors duration-300"
+            >
               Terms of Service
             </Link>
-            <Link href="#" className="hover:text-white transition-colors duration-300">
+            <Link
+              href="#"
+              className="hover:text-white transition-colors duration-300"
+            >
               Cookie Policy
             </Link>
           </div>
         </div>
+        <div className="max-w-7xl mx-auto px-4 text-center mt-4">
+          <p className="text-white/40 text-xs">
+            Powered by{" "}
+            <a
+              href="https://metavatechhq.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors duration-300"
+            >
+              Metavatech
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
-  )
+  );
 }

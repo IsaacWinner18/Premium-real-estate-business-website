@@ -15,7 +15,8 @@ const allProperties = [
     size: "5,200 sqft",
     bedrooms: 6,
     bathrooms: 7,
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["Waterfront", "Smart Home", "Private Beach", "Pool", "Gym"],
     description:
       "Luxurious oceanfront estate with panoramic views and premium amenities.",
@@ -27,7 +28,8 @@ const allProperties = [
     price: "₦25,000,000",
     type: "Land",
     size: "2,000 sqm",
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["C of O", "Gated Community", "High ROI", "Development Ready"],
     description:
       "Prime land in fast-developing area with excellent appreciation potential.",
@@ -41,7 +43,8 @@ const allProperties = [
     size: "3,800 sqft",
     bedrooms: 4,
     bathrooms: 5,
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["City View", "Pool", "Gym", "Concierge", "Parking"],
     description:
       "Sophisticated penthouse with breathtaking city views and world-class amenities.",
@@ -53,7 +56,8 @@ const allProperties = [
     price: "₦1,200,000,000",
     type: "Commercial",
     size: "15,000 sqft",
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["Prime Location", "High Yield", "Fully Leased", "Modern Design"],
     description:
       "Grade A commercial building in the heart of Abuja's business district.",
@@ -67,7 +71,8 @@ const allProperties = [
     size: "6,500 sqft",
     bedrooms: 7,
     bathrooms: 8,
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["Smart Home", "Private Jetty", "Cinema", "Wine Cellar"],
     description:
       "Ultra-modern smart villa with cutting-edge technology and luxury finishes.",
@@ -79,7 +84,8 @@ const allProperties = [
     price: "₦15,000,000",
     type: "Land",
     size: "5,000 sqm",
-    image: "/placeholder.svg?height=400&width=600",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     features: ["Beachfront", "C of O", "Resort Potential", "Appreciation"],
     description:
       "Beachfront land perfect for resort development or long-term investment.",
@@ -134,18 +140,28 @@ export default function PropertiesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-200 via-neutral-200 to-amber-50">
       <Header />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 to-slate-600/10"></div>
-        <div className="max-w-7xl mx-auto px-4 relative">
+        <div className="absolute inset-0">
+          <Image
+            src="/Dubai-real-estate.jpg"
+            alt="Properties Hero"
+            layout="fill"
+            objectFit="cover"
+            className="w-full h-full object-cover opacity-80"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-600/60 to-amber-300/40" />
+        </div>
+        <div className="md:max-w-7xl md:mx-auto md:px-4 relative">
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
-              Premium <span className="text-emerald-600">Properties</span>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-100 mb-6">
+              Premium <span className="text-amber-900">Properties</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
               Discover exceptional real estate opportunities handpicked for
               discerning investors
             </p>
@@ -154,9 +170,9 @@ export default function PropertiesPage() {
       </section>
 
       {/* Filters */}
-      <section className="pb-8">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/20">
+      <section className="pb-8 mt-4">
+        <div className="max-w-7xl mx-auto md:px-4 px-2">
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl md:p-8 p-4 shadow-xl border border-white/20">
             {/* Search */}
             <div className="mb-8">
               <input
@@ -164,7 +180,7 @@ export default function PropertiesPage() {
                 placeholder="Search properties by name or location..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full p-4 rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-lg"
+                className="w-full p-4 rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:ring-2 focus:ring-amber-500 focus:border-transparent text-lg"
               />
             </div>
 
@@ -174,15 +190,15 @@ export default function PropertiesPage() {
                 <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Property Type
                 </label>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex gap-2 overflow-x-scroll">
                   {filters.map((filter) => (
                     <button
                       key={filter}
                       onClick={() => setActiveFilter(filter)}
                       className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
                         activeFilter === filter
-                          ? "bg-emerald-600 text-white shadow-lg"
-                          : "bg-white/80 text-gray-700 hover:bg-emerald-50 border border-gray-200"
+                          ? "bg-amber-600 text-white shadow-lg"
+                          : "bg-white/80 text-gray-700 hover:bg-amber-50 border border-gray-200"
                       }`}
                     >
                       {filter}
@@ -198,7 +214,7 @@ export default function PropertiesPage() {
                 <select
                   value={priceFilter}
                   onChange={(e) => setPriceFilter(e.target.value)}
-                  className="w-full p-3 rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:ring-2 focus:ring-emerald-500"
+                  className="w-full p-3 rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:ring-2 focus:ring-amber-500"
                 >
                   {priceRanges.map((range) => (
                     <option key={range} value={range}>
@@ -215,7 +231,7 @@ export default function PropertiesPage() {
                 <select
                   value={locationFilter}
                   onChange={(e) => setLocationFilter(e.target.value)}
-                  className="w-full p-3 rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:ring-2 focus:ring-emerald-500"
+                  className="w-full p-3 rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:ring-2 focus:ring-amber-500"
                 >
                   {locations.map((location) => (
                     <option key={location} value={location}>
@@ -231,7 +247,7 @@ export default function PropertiesPage() {
 
       {/* Properties Grid */}
       <section className="pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto md:px-4 px-2">
           <div className="mb-8">
             <p className="text-gray-600 text-lg">
               Showing {filteredProperties.length} of {allProperties.length}{" "}
@@ -254,7 +270,7 @@ export default function PropertiesPage() {
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-emerald-600 text-white px-3 py-1 text-sm font-semibold rounded-full">
+                    <span className="bg-amber-600 text-white px-3 py-1 text-sm font-semibold rounded-full">
                       {property.type}
                     </span>
                   </div>
@@ -265,8 +281,8 @@ export default function PropertiesPage() {
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                <div className="md:p-6 p-3">
+                  <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">
                     {property.title}
                   </h3>
                   <p className="text-gray-600 mb-4 flex items-center">
@@ -308,7 +324,7 @@ export default function PropertiesPage() {
                     </span>
                     <Link
                       href={`/properties/${property.id}`}
-                      className="bg-gray-900 text-white px-6 py-2 rounded-full font-semibold hover:bg-emerald-600 transition-all duration-300 transform hover:scale-105"
+                      className="bg-gray-900 text-white md:px-6 px-4 py-2 rounded-full font-semibold hover:bg-amber-600 transition-all duration-300 transform hover:scale-105"
                     >
                       View Details
                     </Link>

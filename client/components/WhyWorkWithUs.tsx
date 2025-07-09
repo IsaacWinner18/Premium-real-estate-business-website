@@ -10,7 +10,8 @@ const testimonials = [
     title: "Tech Entrepreneur",
     content:
       "They helped me acquire 3 prime properties in Lekki. My portfolio has grown by 250% in just 2 years. Professional, trustworthy, and results-driven.",
-    image: "/placeholder.svg?height=80&width=80",
+    image:
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751909610/Davido-7_e4rqd4.jpg",
     rating: 5,
   },
   {
@@ -20,7 +21,7 @@ const testimonials = [
     content:
       "Best real estate investment I've made. They guided me through the entire process and the property has already doubled in value. Highly recommended!",
     image:
-      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751909610/Davido-7_e4rqd4.jpg",
     rating: 5,
   },
   {
@@ -59,11 +60,11 @@ export default function WhyWorkWithUs() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center glass-strong p-6 rounded-2xl"
+              className="text-center glass-strong md:p-6 p-3 rounded-2xl"
             >
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                 {stat.number}
@@ -92,19 +93,19 @@ export default function WhyWorkWithUs() {
             </div>
             <div className="mt-6 grid grid-cols-3 md:gap-4 gap-1">
               <div className="text-center p-2 glass-strong rounded-lg">
-                <div className="md:text-2xl text-xl font-bold text-white">
+                <div className="md:text-2xl text-md font-bold text-white">
                   NIESV
                 </div>
                 <div className="text-sm text-white/70">Certified</div>
               </div>
               <div className="text-center p-2 glass-strong rounded-lg">
-                <div className="md:text-2xl text-xl font-bold text-white">
+                <div className="md:text-2xl text-md font-bold text-white">
                   ESVARBON
                 </div>
                 <div className="text-sm text-white/70">Member</div>
               </div>
               <div className="text-center p-2 glass-strong rounded-lg">
-                <div className="md:text-2xl text-xl font-bold text-white">
+                <div className="md:text-2xl text-md font-bold text-white">
                   ISO
                 </div>
                 <div className="text-sm text-white/70">Certified</div>
