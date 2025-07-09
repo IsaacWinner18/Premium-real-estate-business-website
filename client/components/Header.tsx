@@ -42,7 +42,7 @@ export default function Header() {
                   P
                 </span>
               </div>
-              <span className="text-xl lg:text-2xl font-serif font-bold text-white">
+              <span className="text-xl lg:text-2xl font-serif font-bold text-neutral-400">
                 PremiumEstate
               </span>
             </Link>
@@ -82,7 +82,7 @@ export default function Header() {
               <svg
                 className="w-6 h-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="black"
                 viewBox="0 0 24 24"
               >
                 {isMobileMenuOpen ? (

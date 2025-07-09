@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 
 export default function InvestorTools() {
   const [calculatorData, setCalculatorData] = useState({
     purchasePrice: "",
     location: "Lagos",
     timeframe: "18",
-  })
-  const [projectedValue, setProjectedValue] = useState<number | null>(null)
+  });
+  const [projectedValue, setProjectedValue] = useState<number | null>(null);
 
   const calculateROI = () => {
-    const price = Number.parseFloat(calculatorData.purchasePrice)
-    if (!price) return
+    const price = Number.parseFloat(calculatorData.purchasePrice);
+    if (!price) return;
 
     // Simple ROI calculation based on location and timeframe
     const locationMultiplier =
@@ -21,12 +21,12 @@ export default function InvestorTools() {
         Abuja: 1.4,
         "Port Harcourt": 1.3,
         Kano: 1.2,
-      }[calculatorData.location] || 1.4
+      }[calculatorData.location] || 1.4;
 
-    const timeMultiplier = Number.parseInt(calculatorData.timeframe) / 12
-    const projected = price * locationMultiplier * timeMultiplier
-    setProjectedValue(projected)
-  }
+    const timeMultiplier = Number.parseInt(calculatorData.timeframe) / 12;
+    const projected = price * locationMultiplier * timeMultiplier;
+    setProjectedValue(projected);
+  };
 
   return (
     <section id="investor-tools" className="py-24">
@@ -116,12 +116,12 @@ export default function InvestorTools() {
               </button>
 
               {projectedValue && (
-                <div className="bg-emerald-600/20 border border-emerald-400/30 p-4 rounded-lg mt-4">
-                  <p className="text-sm text-emerald-300">Projected Value:</p>
+                <div className="bg-yellow-100/20 border border-yellow-400/30 p-4 rounded-lg mt-4">
+                  <p className="text-sm text-yellow-600">Projected Value:</p>
                   <p className="text-2xl font-bold text-white">
                     ₦{projectedValue.toLocaleString()}
                   </p>
-                  <p className="text-sm text-emerald-300 mt-2">
+                  <p className="text-sm text-yellow-600 mt-2">
                     Potential ROI:{" "}
                     {(
                       ((projectedValue -
@@ -143,25 +143,25 @@ export default function InvestorTools() {
                 Land Banking Success Stories
               </h3>
               <div className="space-y-4">
-                <div className="border-l-4 border-emerald-400 pl-4">
+                <div className="border-l-4 border-yellow-400 pl-4">
                   <p className="font-semibold text-white">
                     Lekki Phase 2 Investment
                   </p>
                   <p className="text-white/70 text-sm">
                     Bought at ₦8M in 2022, now worth ₦32M
                   </p>
-                  <p className="text-emerald-400 font-bold">
+                  <p className="text-yellow-700 font-bold">
                     400% ROI in 24 months
                   </p>
                 </div>
-                <div className="border-l-4 border-emerald-400 pl-4">
+                <div className="border-l-4 border-yellow-400 pl-4">
                   <p className="font-semibold text-white">
                     Abuja Gwarinpa Estate
                   </p>
                   <p className="text-white/70 text-sm">
                     Bought at ₦15M in 2021, now worth ₦45M
                   </p>
-                  <p className="text-emerald-400 font-bold">
+                  <p className="text-yellow-700 font-bold">
                     300% ROI in 36 months
                   </p>
                 </div>

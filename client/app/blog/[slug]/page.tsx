@@ -1,7 +1,7 @@
-import { notFound } from "next/navigation"
-import Header from "@/components/Header"
-import Link from "next/link"
-import Image from "next/image"
+import { notFound } from "next/navigation";
+import Header from "@/components/Header";
+import Link from "next/link";
+import Image from "next/image";
 
 // Mock blog data - in real app, this would come from CMS or API
 const blogPosts = {
@@ -9,7 +9,8 @@ const blogPosts = {
     id: 1,
     slug: "smart-places-buy-land-lagos-2025",
     title: "5 Smart Places to Buy Land in Lagos 2025",
-    excerpt: "Discover the fastest-growing areas in Lagos with the highest ROI potential for land banking investments.",
+    excerpt:
+      "Discover the fastest-growing areas in Lagos with the highest ROI potential for land banking investments.",
     image: "/placeholder.svg?height=600&width=1200",
     date: "2025-01-15",
     readTime: "5 min read",
@@ -107,7 +108,8 @@ const blogPosts = {
     id: 2,
     slug: "c-of-o-vs-gazette-difference",
     title: "C of O vs Gazette: What's the Difference?",
-    excerpt: "Understanding the legal documents that protect your property investment and ensure clear ownership.",
+    excerpt:
+      "Understanding the legal documents that protect your property investment and ensure clear ownership.",
     image: "/placeholder.svg?height=600&width=1200",
     date: "2025-01-10",
     readTime: "7 min read",
@@ -303,23 +305,23 @@ const blogPosts = {
       },
     ],
   },
-}
+};
 
 interface BlogPostPageProps {
   params: {
-    slug: string
-  }
+    slug: string;
+  };
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = blogPosts[params.slug as keyof typeof blogPosts]
+  const post = blogPosts[params.slug as keyof typeof blogPosts];
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-yellow-100">
       <Header />
 
       {/* Hero Section */}
@@ -328,11 +330,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Breadcrumb */}
           <nav className="mb-8">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <Link href="/" className="hover:text-emerald-600">
+              <Link href="/" className="hover:text-yellow-700">
                 Home
               </Link>
               <span>/</span>
-              <Link href="/blog" className="hover:text-emerald-600">
+              <Link href="/blog" className="hover:text-yellow-700">
                 Blog
               </Link>
               <span>/</span>
@@ -343,37 +345,50 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Article Header */}
           <div className="mb-8">
             <div className="flex items-center gap-4 mb-6">
-              <span className="bg-emerald-100 text-emerald-800 px-3 py-1 text-sm font-medium rounded-full">
+              <span className="bg-yellow-100 text-yellow-900 px-3 py-1 text-sm font-medium rounded-full">
                 {post.category}
               </span>
               <span className="text-gray-500 text-sm">{post.readTime}</span>
-              <span className="text-gray-500 text-sm">{new Date(post.date).toLocaleDateString()}</span>
+              <span className="text-gray-500 text-sm">
+                {new Date(post.date).toLocaleDateString()}
+              </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6 leading-tight">{post.title}</h1>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+              {post.title}
+            </h1>
 
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">{post.excerpt}</p>
+            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              {post.excerpt}
+            </p>
 
             {/* Author Info */}
             <div className="flex items-center mb-8">
               <Image
-                src={post.author.image || "/placeholder.svg"}
+                src="https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg"
                 alt={post.author.name}
                 width={60}
                 height={60}
                 className="rounded-full mr-4"
               />
               <div>
-                <div className="font-semibold text-gray-900">{post.author.name}</div>
+                <div className="font-semibold text-gray-900">
+                  {post.author.name}
+                </div>
                 <div className="text-sm text-gray-600">{post.author.title}</div>
-                <div className="text-sm text-gray-500 mt-1">{post.author.bio}</div>
+                <div className="text-sm text-gray-500 mt-1">
+                  {post.author.bio}
+                </div>
               </div>
             </div>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-8">
               {post.tags.map((tag) => (
-                <span key={tag} className="bg-gray-100 text-gray-600 px-3 py-1 text-sm rounded-full">
+                <span
+                  key={tag}
+                  className="bg-gray-100 text-gray-600 px-3 py-1 text-sm rounded-full"
+                >
                   #{tag}
                 </span>
               ))}
@@ -387,7 +402,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-white/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-white/20">
             <Image
-              src={post.image || "/placeholder.svg"}
+              src="https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg"
               alt={post.title}
               width={1200}
               height={600}
@@ -399,10 +414,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Article Content */}
       <section className="mb-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
+        <div className="max-w-4xl mx-auto md:px-4 px-2">
+          <div className="bg-white/80 backdrop-blur-md rounded-2xl  py-8 md:px-8 px-4 md:p-12 shadow-xl border border-white/20">
             <div
-              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-emerald-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700"
+              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-yellow-700 prose-a:no-underline hover:prose-a:underline prose-strong:text-black prose-ul:text-black prose-ol:text-black"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>
@@ -412,7 +427,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Related Posts */}
       <section className="mb-16">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">Related Articles</h2>
+          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">
+            Related Articles
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {post.relatedPosts.map((relatedPost) => (
               <Link
@@ -421,14 +438,14 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 className="group bg-white/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300"
               >
                 <Image
-                  src={relatedPost.image || "/placeholder.svg"}
+                  src="https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg"
                   alt={relatedPost.title}
                   width={300}
                   height={200}
                   className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                  <h3 className="font-semibold text-black group-hover:text-yellow-700 transition-colors">
                     {relatedPost.title}
                   </h3>
                 </div>
@@ -439,15 +456,19 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="mb-16">
+      <section className="mb-16 py-6">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-serif font-bold mb-4">Ready to Start Your Investment Journey?</h3>
-            <p className="text-emerald-100 mb-6">Get personalized property recommendations from our expert team</p>
+          <div className="bg-gradient-to-r from-yellow-500 to-yellow-700 text-white rounded-2xl p-8 text-center">
+            <h3 className="text-2xl font-serif font-bold mb-4">
+              Ready to Start Your Investment Journey?
+            </h3>
+            <p className="text-yellow-900 mb-6">
+              Get personalized property recommendations from our expert team
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/#consultation"
-                className="bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+                className="bg-white text-yellow-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
               >
                 Book Consultation
               </Link>
@@ -462,5 +483,5 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </section>
     </div>
-  )
+  );
 }

@@ -7,25 +7,37 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Mock property data - in real app, this would come from API
-const propertyData: { [key: string]: {
-  id: number;
-  title: string;
-  location: string;
-  price: string;
-  type: string;
-  size: string;
-  bedrooms: number;
-  bathrooms: number;
-  parking: number;
-  yearBuilt: number;
-  images: string[];
-  features: string[];
-  description: string;
-  amenities: string[];
-  nearbyPlaces: { name: string; distance: string; type: string }[];
-  agent: { name: string; title: string; phone: string; email: string; image: string };
-  roiProjection: { currentValue: number; projected18Months: number; projectedROI: string };
-} } = {
+const propertyData: {
+  [key: string]: {
+    id: number;
+    title: string;
+    location: string;
+    price: string;
+    type: string;
+    size: string;
+    bedrooms: number;
+    bathrooms: number;
+    parking: number;
+    yearBuilt: number;
+    images: string[];
+    features: string[];
+    description: string;
+    amenities: string[];
+    nearbyPlaces: { name: string; distance: string; type: string }[];
+    agent: {
+      name: string;
+      title: string;
+      phone: string;
+      email: string;
+      image: string;
+    };
+    roiProjection: {
+      currentValue: number;
+      projected18Months: number;
+      projectedROI: string;
+    };
+  };
+} = {
   1: {
     id: 1,
     title: "Oceanfront Estate",
@@ -38,10 +50,10 @@ const propertyData: { [key: string]: {
     parking: 4,
     yearBuilt: 2023,
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751909610/Davido-7_e4rqd4.jpg",
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
+      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751909610/Davido-7_e4rqd4.jpg",
     ],
     features: [
       "Waterfront",
@@ -78,7 +90,8 @@ const propertyData: { [key: string]: {
       title: "Senior Property Consultant",
       phone: "+234 901 234 5678",
       email: "adebayo@premiumestate.ng",
-      image: "/placeholder.svg?height=100&width=100",
+      image:
+        "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg",
     },
     roiProjection: {
       currentValue: 450000000,
@@ -98,7 +111,7 @@ export default function PropertyDetailPage() {
 
   if (!property) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50">
+      <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-amber-50">
         <Header />
         <div className="pt-32 text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -106,7 +119,7 @@ export default function PropertyDetailPage() {
           </h1>
           <Link
             href="/properties"
-            className="text-emerald-600 hover:text-emerald-700"
+            className="text-yellow-600 hover:text-yellow-700"
           >
             ← Back to Properties
           </Link>
@@ -116,31 +129,20 @@ export default function PropertyDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-amber-50">
       <Header />
 
-      {/* Hero Section */}
-      <section className="pt-24 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/Dubai-real-estate.jpg"
-            alt="Property Hero"
-            layout="fill"
-            objectFit="cover"
-            className="w-full h-full object-cover opacity-80"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-600/60 to-amber-300/40" />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 relative">
+      {/* Property Header */}
+      <section className="pt-24 pb-8">
+        <div className="max-w-7xl mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="mb-8">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <Link href="/" className="hover:text-emerald-600">
+              <Link href="/" className="hover:text-yellow-600">
                 Home
               </Link>
               <span>/</span>
-              <Link href="/properties" className="hover:text-emerald-600">
+              <Link href="/properties" className="hover:text-yellow-600">
                 Properties
               </Link>
               <span>/</span>
@@ -198,7 +200,7 @@ export default function PropertyDetailPage() {
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-4xl font-bold text-emerald-600 mb-2">
+                <div className="text-4xl font-bold text-yellow-600 mb-2">
                   {property.price}
                 </div>
                 <div className="text-sm text-gray-600">
@@ -216,7 +218,10 @@ export default function PropertyDetailPage() {
           <div className="bg-white/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-white/20">
             <div className="relative">
               <Image
-                src={property.images[currentImageIndex] || "/placeholder.svg"}
+                src={
+                  property.images[currentImageIndex] ||
+                  "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg"
+                }
                 alt={property.title}
                 width={1200}
                 height={600}
@@ -290,11 +295,16 @@ export default function PropertyDetailPage() {
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
                   className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
-                    currentImageIndex === index ? "border-amber-600" : "border-transparent"
+                    currentImageIndex === index
+                      ? "border-yellow-600"
+                      : "border-transparent"
                   }`}
                 >
                   <Image
-                    src={image || "/placeholder.svg"}
+                    src={
+                      image ||
+                      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg"
+                    }
                     alt={`${property.title} ${index + 1}`}
                     width={80}
                     height={80}
@@ -308,13 +318,13 @@ export default function PropertyDetailPage() {
       </section>
 
       {/* Property Details */}
-      <section className="mb-12">
+      <section className="mb-12 py-6">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Description */}
-              <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/20">
+              <div className="bg-white/80 backdrop-blur-md rounded-2xl  py-8 md:px-8 px-4 shadow-xl border border-white/20">
                 <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
                   About This Property
                 </h2>
@@ -330,10 +340,10 @@ export default function PropertyDetailPage() {
                   {property.features.map((feature: string) => (
                     <div
                       key={feature}
-                      className="flex items-center bg-amber-50 px-3 py-2 rounded-lg"
+                      className="flex items-center bg-yellow-50 px-3 py-2 rounded-lg"
                     >
                       <svg
-                        className="w-4 h-4 text-emerald-600 mr-2"
+                        className="w-4 h-4 text-yellow-600 mr-2"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -352,7 +362,7 @@ export default function PropertyDetailPage() {
               </div>
 
               {/* Amenities */}
-              <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/20">
+              <div className="bg-white/80 backdrop-blur-md rounded-2xl  py-8 md:px-8 px-4 shadow-xl border border-white/20">
                 <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
                   Amenities
                 </h2>
@@ -360,7 +370,7 @@ export default function PropertyDetailPage() {
                   {property.amenities.map((amenity: string) => (
                     <div key={amenity} className="flex items-center">
                       <svg
-                        className="w-5 h-5 text-emerald-600 mr-3"
+                        className="w-5 h-5 text-yellow-600 mr-3"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -377,29 +387,34 @@ export default function PropertyDetailPage() {
               </div>
 
               {/* Nearby Places */}
-              <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/20">
+              <div className="bg-white/80 backdrop-blur-md rounded-2xl  py-8 md:px-8 px-4 shadow-xl border border-white/20 mb-8">
                 <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
                   Nearby Places
                 </h2>
                 <div className="space-y-4">
-                  {property.nearbyPlaces.map((place: { name: string; distance: string; type: string }, index: number) => (
-                    <div
-                      key={index}
-                      className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0"
-                    >
-                      <div>
-                        <div className="font-medium text-gray-900">
-                          {place.name}
+                  {property.nearbyPlaces.map(
+                    (
+                      place: { name: string; distance: string; type: string },
+                      index: number
+                    ) => (
+                      <div
+                        key={index}
+                        className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0"
+                      >
+                        <div>
+                          <div className="font-medium text-gray-900">
+                            {place.name}
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            {place.type}
+                          </div>
                         </div>
-                        <div className="text-sm text-gray-600">
-                          {place.type}
+                        <div className="text-yellow-600 font-medium">
+                          {place.distance}
                         </div>
                       </div>
-                      <div className="text-amber-600 font-medium">
-                        {place.distance}
-                      </div>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               </div>
             </div>
@@ -407,7 +422,7 @@ export default function PropertyDetailPage() {
             {/* Sidebar */}
             <div className="space-y-6">
               {/* ROI Projection */}
-              <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-2xl p-6 shadow-xl">
+              <div className="bg-gradient-to-br from-yellow-600 to-yellow-700 text-white rounded-2xl p-6 shadow-xl">
                 <h3 className="text-xl font-semibold mb-4">
                   Investment Projection
                 </h3>
@@ -432,10 +447,10 @@ export default function PropertyDetailPage() {
                       M
                     </span>
                   </div>
-                  <div className="border-t border-emerald-400 pt-3">
+                  <div className="border-t border-yellow-400 pt-3">
                     <div className="flex justify-between text-lg">
                       <span>Potential ROI:</span>
-                      <span className="font-bold text-amber-300">
+                      <span className="font-bold text-yellow-200">
                         {property.roiProjection.projectedROI}
                       </span>
                     </div>
@@ -450,7 +465,10 @@ export default function PropertyDetailPage() {
                 </h3>
                 <div className="flex items-center mb-4">
                   <Image
-                    src={property.agent.image || "/placeholder.svg"}
+                    src={
+                      property.agent.image ||
+                      "https://res.cloudinary.com/dkfmaqtpy/image/upload/v1751988615/Dubai-real-estate_hawrbw.jpg"
+                    }
                     alt={property.agent.name}
                     width={60}
                     height={60}
@@ -469,7 +487,7 @@ export default function PropertyDetailPage() {
                 <div className="space-y-3">
                   <a
                     href={`tel:${property.agent.phone}`}
-                    className="w-full bg-emerald-600 text-white py-3 px-4 rounded-xl font-semibold hover:bg-emerald-700 transition-colors flex items-center justify-center"
+                    className="w-full bg-yellow-600 text-white py-3 px-4 rounded-xl font-semibold hover:bg-yellow-700 transition-colors flex items-center justify-center"
                   >
                     <svg
                       className="w-5 h-5 mr-2"
@@ -508,12 +526,12 @@ export default function PropertyDetailPage() {
               </div>
 
               {/* Quick Actions */}
-              <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20">
+              <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20 mb-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Quick Actions
                 </h3>
                 <div className="space-y-3">
-                  <button className="w-full bg-amber-500 text-white py-3 px-4 rounded-xl font-semibold hover:bg-amber-600 transition-colors">
+                  <button className="w-full bg-yellow-500 text-white py-3 px-4 rounded-xl font-semibold hover:bg-yellow-600 transition-colors">
                     Schedule Inspection
                   </button>
                   <button className="w-full border border-gray-300 text-gray-700 py-3 px-4 rounded-xl font-semibold hover:bg-gray-50 transition-colors">
@@ -564,7 +582,7 @@ export default function PropertyDetailPage() {
                 </label>
                 <input
                   type="text"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   placeholder="Your full name"
                 />
               </div>
@@ -574,7 +592,7 @@ export default function PropertyDetailPage() {
                 </label>
                 <input
                   type="email"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   placeholder="your@email.com"
                 />
               </div>
@@ -584,7 +602,7 @@ export default function PropertyDetailPage() {
                 </label>
                 <input
                   type="tel"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   placeholder="+234 xxx xxx xxxx"
                 />
               </div>
@@ -594,13 +612,13 @@ export default function PropertyDetailPage() {
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   placeholder="I'm interested in this property..."
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-emerald-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
+                className="w-full bg-yellow-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-yellow-700 transition-colors"
               >
                 Send Message
               </button>
